@@ -10,7 +10,7 @@ COPY conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
 
 COPY conf/setup.sh /setup.sh
 
-RUN chmod 777 setup.sh
+RUN chmod +x /setup.sh
 
 EXPOSE 3306
 
