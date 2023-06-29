@@ -1,17 +1,21 @@
-# create container docker debian buster 
+# Utilisez l'image de base Debian Buster
 FROM debian:buster
 
-# upgrade, install package for the nginx and protocol TSL
-RUN apt update -y && \ 
-    apt upgrade -y && \
-    apt install mariadb-server -y 
+# Mettez à jour les paquets du système
+RUN apt-get update && apt-get upgrade -y
 
-COPY conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
+# Installez MariaDB Server
+RUN apt-get install -y mariadb-server
 
+# Copiez le fichier de configuration 50-server.cnf
+COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+
+# Copiez le script de configuration et démarrez MariaDB
 COPY conf/setup.sh /setup.sh
-
 RUN chmod +x /setup.sh
 
+# Exposez le port 3306 pour l'accès à la base de données
 EXPOSE 3306
 
-CMD ["sh", "setup.sh"]
+# Exécutez le script de configuration
+CMD ["sh", "/setup.sh"]
