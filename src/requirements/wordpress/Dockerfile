@@ -36,3 +36,4 @@ WORKDIR /var/www/wordpress
 EXPOSE 9000
 
 ENTRYPOINT ["bash", "/var/www/auto_config.sh"]
+

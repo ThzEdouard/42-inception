@@ -1,5 +1,4 @@
 version: '3'
-
 services:
   mariadb:
     container_name: mariadb
@@ -50,9 +49,17 @@ services:
 volumes:
   wordpress:
     driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/debian/data/wp-website'
   mariadb:
     driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/debian/data/wp-database'
 
 networks:
   inception:
-    driver: bridge
+   driver: bridge

@@ -14,11 +14,11 @@ show:
 
 renew:
 	make down
-	sudo docker volume rm srcs_mariadb
-	sudo docker volume rm srcs_wordpress
-	sudo rm -rf /home/eflaquet/data/wp-website/*
-	sudo rm -rf /home/eflaquet/data/wp-database/*
-	make up
+	sudo docker volume rm src_mariadb
+	sudo docker volume rm src_wordpress
+	sudo rm -rf /home/debian/data/wp-website/*
+	sudo rm -rf /home/debian/data/wp-database/*
+	
 
 logs:
 	sudo docker logs wordpress
