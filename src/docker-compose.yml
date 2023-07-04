@@ -52,13 +52,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/debian/data/wp-website'
+      device: '/home/eflaquet/data/wp-website'
   mariadb:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/debian/data/wp-database'
+      device: '/home/eflaquet/data/wp-database'
 
 networks:
   inception:
